@@ -15,7 +15,7 @@ public interface IUserService
     User Login(string email, string password);
 
     // CRUD
-    User GetUserById(Guid dd);
+    User GetUserById(Guid id);
     List<User> GetAllUsers();
     void UpdateUser(User user);
     void DeleteUser(Guid id);
