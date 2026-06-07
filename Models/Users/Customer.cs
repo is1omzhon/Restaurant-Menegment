@@ -3,6 +3,7 @@ using Models.Base;
 using Models.Reservation;  // Reservation uchun
 using Models.Order;       // Order uchun
 using Models.Review;      // Review uchun
+using Models.Users;
 
 namespace RestaurantReservationSystem.Models.Users
 {
@@ -40,5 +41,9 @@ namespace RestaurantReservationSystem.Models.Users
         {
             Reservations.Add(reservation);
         }
+    }
+
+    public class Order
+    {
     }
 }

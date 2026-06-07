@@ -1,4 +1,4 @@
-namespace Models.Base.BaseEntity;
+namespace Models.Base;
 public abstract class BaseEntity
 {
     public Guid Id {get; set;}
