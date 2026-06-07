@@ -1,3 +1,4 @@
+namespace Enums.OrderStatus;
 public enum OrderStatus
 {
     Received,
