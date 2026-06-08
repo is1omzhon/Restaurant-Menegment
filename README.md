@@ -62,30 +62,21 @@ RestaurantReservationSystem/
 │
 └── Program.cs
 
-⚙️ Asosiy funksiyalar
-👤 Mijoz (Customer) uchun:
-🔍 Restoranlarni qidirish (nom, cuisine, rating bo'yicha)
+## ⚙️ Asosiy funksiyalar
+#### 👤 Mijoz (Customer) uchun:
+#### 🔍 Restoranlarni qidirish (nom, cuisine, rating bo'yicha)
+#### 🪑 Stol band qilish (real-time availability)
+#### 📋 Menu ko'rish
+#### 🛒 Buyurtma berish
+#### ⭐ Sharh va reyting qoldirish
 
-🪑 Stol band qilish (real-time availability)
+## 👨‍💼 Restoran egasi (RestaurantOwner) uchun:
+#### ➕ Restoran qo'shish / tahrirlash / o'chirish
+#### 🪑 Stol qo'shish / tahrirlash
+#### 📝 Menyuga taom qo'shish / tahrirlash
+#### 📊 Bandlarni ko'rish
 
-📋 Menu ko'rish
-
-🛒 Buyurtma berish
-
-⭐ Sharh va reyting qoldirish
-
-👨‍💼 Restoran egasi (RestaurantOwner) uchun:
-➕ Restoran qo'shish / tahrirlash / o'chirish
-
-🪑 Stol qo'shish / tahrirlash
-
-📝 Menyuga taom qo'shish / tahrirlash
-
-📊 Bandlarni ko'rish
-
-👑 Admin uchun:
-👥 Barcha userlarni boshqarish
-
-🏪 Barcha restoranlarni boshqarish
-
-📈 Statistikalar ko'rish
+## 👑 Admin uchun:
+#### 👥 Barcha userlarni boshqarish
+#### 🏪 Barcha restoranlarni boshqarish
+#### 📈 Statistikalar ko'rish
