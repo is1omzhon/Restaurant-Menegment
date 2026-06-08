@@ -1,9 +1,10 @@
-namespace Enums.ReservationStatus;
-
-public enum ReserVationStatus
+namespace RestaurantReservationSystem.Enums
 {
-    Pending,
-    Confirmed,
-    Cancelled,
-    Complited
+    public enum ReservationStatus
+    {
+        Pending,
+        Confirmed,
+        Cancelled,
+        Completed
+    }
 }

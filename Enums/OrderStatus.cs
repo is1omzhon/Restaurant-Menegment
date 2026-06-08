@@ -1,8 +1,10 @@
-namespace Enums.OrderStatus;
-public enum OrderStatus
+namespace RestaurantReservationSystem.Enums
 {
-    Received,
-    Preparing,
-    Ready,
-    Served
+    public enum OrderStatus
+    {
+        Received,
+        Preparing,
+        Ready,
+        Served
+    }
 }

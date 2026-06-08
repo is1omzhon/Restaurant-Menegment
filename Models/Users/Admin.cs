@@ -1,46 +1,27 @@
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using Models.Base;
+using RestaurantReservationSystem.Models.Common;
 
-namespace Models.Users;
-
-public class Admin : User
+namespace RestaurantReservationSystem.Models.Users
 {
-    public List<string> Permissions {get; set;}
-    public string AdminLevel {get; set;} // SuperAdmin, Moderator, Support
-
-    public Admin()
+    public class Admin : User
     {
-        Permissions = new List<string>
+        public List<string> Permissions { get; set; }
+        public string AdminLevel { get; set; }
+        
+        public Admin()
         {
-            "manage_users",
-            "manage_restaurants",
-            "view_supports",
-            "manage_admins"
-        };
-        AdminLevel = "Moderator";
+            Permissions = new List<string>
+            {
+                "manage_users",
+                "manage_restaurants",
+                "view_reports"
+            };
+            AdminLevel = "Moderator";
+        }
+        
+        public override string GetRoleName()
+        {
+            return $"Admin ({AdminLevel})";
+        }
     }
-
-    public override string GetRoleName()
-    {
-    
-        return "Admin";
-    }
-
-    public void AddPermissions(string permission)
-    {   
-        if(! Permissions.Contains(permission))
-            Permissions.Add(permission);
-    }
-
-    public void RemovePermission(string permission)
-    {
-        Permissions.Remove(permission);
-    }
-
-    public bool HasPermission(string permission)
-    {
-        return Permissions.Contains(permission);
-    }
-
 }

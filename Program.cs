@@ -1,15 +1,33 @@
-﻿using Services.Helpers;
+﻿using System;
+using RestaurantReservationSystem.Enums;
+using RestaurantReservationSystem.Services.Interfaces;
+using RestaurantReservationSystem.Services.Implementations;
 
-var storage = new FileStorage("test.json");
+// ========== TOP-LEVEL STATEMENTS (Main yo'q) ==========
+IUserService userService = new UserService();
 
-// Saqlash
-var names = new List<string> { "Ali", "Vali", "Hasan" };
-storage.Save(names);
-Console.WriteLine("Saved!");
+Console.WriteLine("=== RESTAURANT RESERVATION SYSTEM ===\n");
 
-// Yuklash
-var loadedNames = storage.Load<List<string>>();
-foreach (var name in loadedNames)
+// Register
+Console.WriteLine("--- REGISTER ---");
+var customer = userService.Register("Ali Valiyev", "ali@mail.com", "123456", "+998901234567", UserRole.Customer);
+
+// Login
+Console.WriteLine("\n--- LOGIN ---");
+var user = userService.Login("ali@mail.com", "123456");
+
+if (user != null)
 {
-    Console.WriteLine(name);
+    Console.WriteLine($"\n✅ Welcome: {user.FullName}");
+    Console.WriteLine($"📌 Role: {user.GetRoleName()}");
 }
+
+// All users
+Console.WriteLine("\n--- ALL USERS ---");
+var allUsers = userService.GetAllUsers();
+foreach (var u in allUsers)
+{
+    Console.WriteLine($"- {u.FullName} ({u.Email}) - {u.GetRoleName()}");
+}
+
+Console.WriteLine($"\n📊 Total users: {allUsers.Count}");

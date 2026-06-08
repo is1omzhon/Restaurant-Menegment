@@ -1,8 +1,9 @@
-namespace Enums.UserRole;
-
-public enum UserRole
+namespace RestaurantReservationSystem.Enums
 {
-    Admin,
-    Customer,
-    RestaurantOwner
+    public enum UserRole
+    {
+        Customer,
+        RestaurantOwner,
+        Admin
+    }
 }

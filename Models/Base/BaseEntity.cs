@@ -1,15 +1,19 @@
-namespace Models.Base;
-public abstract class BaseEntity
+using System;
+
+namespace RestaurantReservationSystem.Models.Common
 {
-    public Guid Id {get; set;}
-    public DateTime CreatedAt{get; set;}
-    public DateTime ? UpdateAt{get; set;}
-
-    protected BaseEntity()
+    public abstract class BaseEntity
     {
-        Id = Guid.NewGuid();
-        CreatedAt = DateTime.UtcNow;
+        public Guid Id { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        
+        protected BaseEntity()
+        {
+            Id = Guid.NewGuid();
+            CreatedAt = DateTime.UtcNow;
+        }
+        
+        public abstract string GetDisplayInfo();
     }
-
-    public abstract string GetDisplayInfo();
 }

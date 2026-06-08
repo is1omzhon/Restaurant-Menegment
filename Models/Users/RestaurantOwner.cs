@@ -1,42 +1,24 @@
 using System.Collections.Generic;
-using Models.Base;
-using Models.Restaurant;
-using Models.Users;
+using RestaurantReservationSystem.Models.Common;
 
-namespace Models.RestaurantOwner;
-
-public class RestaurantOwner : User
+namespace RestaurantReservationSystem.Models.Users
 {
-    public List<Restaurant> Restaurants {get; set;}
-    public double AverageRating {get;set;}
-    public DateTime JoinedData {get; set;}
-
-    public RestaurantOwner()
+    public class RestaurantOwner : User
     {
-        Restaurants = new List<Restaurant> ();
-        AverageRating = 0;
-        JoinedData = DateTime.UtcNow;
-    }
-
-    public override string GetRoleName()
-    {
-        return "RestourantOwner";
-    }
-
-    public void UpdateAverageRating()
-    {
-        if ( Restaurants.Count == 0)
+        public List<object> Restaurants { get; set; }
+        public double AverageRating { get; set; }
+        public DateTime JoinedDate { get; set; }
+        
+        public RestaurantOwner()
         {
+            Restaurants = new List<object>();
             AverageRating = 0;
-            return;
+            JoinedDate = DateTime.UtcNow;
         }
-
-        double total = 0;
-
-        foreach ( var r in Restaurants)
+        
+        public override string GetRoleName()
         {
-            total += r.Rating;
+            return "Restaurant Owner";
         }
-        AverageRating = total / Restaurants.Count;
     }
 }

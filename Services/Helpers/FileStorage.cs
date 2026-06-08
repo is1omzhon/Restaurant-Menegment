@@ -1,35 +1,35 @@
+using System;
+using System.IO;
 using Newtonsoft.Json;
 
-namespace Services.Helpers;
-
-public class FileStorage
+namespace RestaurantReservationSystem.Services.Helpers
 {
-    private readonly string filePath;
-
-    public FileStorage(string fileName)
+    public class FileStorage
     {
-        var directory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
-
-        if (!Directory.Exists(directory))
+        private readonly string _filePath;
+        
+        public FileStorage(string fileName)
         {
-            Directory.CreateDirectory(directory);
+            var directory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
+            if (!Directory.Exists(directory))
+                Directory.CreateDirectory(directory);
+            
+            _filePath = Path.Combine(directory, fileName);
         }
-
-        filePath = Path.Combine(directory, fileName);
-    }
-
-    public void Save<T>(T data)
-    {
-        var json = JsonConvert.SerializeObject(data, Formatting.Indented);
-        File.WriteAllText(filePath, json);
-    }
-
-    public T Load<T>()
-    {
-        if (File.Exists(filePath));
-        return default;
-
-        var json = File.ReadAllText(filePath);
-        return JsonConvert.DeserializeObject<T>(json);
+        
+        public void Save<T>(T data)
+        {
+            var json = JsonConvert.SerializeObject(data, Formatting.Indented);
+            File.WriteAllText(_filePath, json);
+        }
+        
+        public T Load<T>()
+        {
+            if (!File.Exists(_filePath))
+                return default;
+            
+            var json = File.ReadAllText(_filePath);
+            return JsonConvert.DeserializeObject<T>(json);
+        }
     }
 }
